@@ -65,7 +65,7 @@ jobs:
               with:
                   tag_name: ${{ env.VERSION_TAG }}
                   files: |
-                      ./bin/*/bronyaBot
+                      ./bin/*
                       ./bin/${{ github.sha }}.tar.gz
                       ./bin/${{ github.sha }}.zip
               env:
