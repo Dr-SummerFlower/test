@@ -2,8 +2,8 @@ name: Go Build and Release
 
 on:
   push:
-    tags:
-      - 'v*'  # Trigger on version tags
+    branches:
+      - main
 
 permissions:
   contents: write  # Allow writing to GitHub releases
