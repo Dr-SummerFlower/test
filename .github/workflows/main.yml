@@ -37,45 +37,51 @@ jobs:
       run: mkdir -p release
 
     - name: Build Linux AMD64
-      run: >
-        CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build \
-        -ldflags="-X 'main.Version=${{ github.ref_name }}' \
-                  -X 'main.BuildDate=${{ env.BUILD_DATE }}'" \
+      run: |
+        mkdir -p release
+        CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build 
+        -ldflags="-X 'main.Version=${{ github.ref_name }}' 
+                  -X 'main.BuildDate=${{ env.BUILD_DATE }}'" 
         -o release/${{ env.PROJECT_NAME }}_${{ env.BUILD_DATE }}_linux_amd64
 
     - name: Build Linux ARM64
-      run: >
-        CGO_ENABLED=0 GOOS=linux GOARCH=arm64 go build \
-        -ldflags="-X 'main.Version=${{ github.ref_name }}' \
-                  -X 'main.BuildDate=${{ env.BUILD_DATE }}'" \
+      run: |
+        mkdir -p release
+        CGO_ENABLED=0 GOOS=linux GOARCH=arm64 go build 
+        -ldflags="-X 'main.Version=${{ github.ref_name }}' 
+                  -X 'main.BuildDate=${{ env.BUILD_DATE }}'" 
         -o release/${{ env.PROJECT_NAME }}_${{ env.BUILD_DATE }}_linux_arm64
 
     - name: Build Windows AMD64
-      run: >
-        CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build \
-        -ldflags="-X 'main.Version=${{ github.ref_name }}' \
-                  -X 'main.BuildDate=${{ env.BUILD_DATE }}'" \
+      run: |
+        mkdir -p release
+        CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build 
+        -ldflags="-X 'main.Version=${{ github.ref_name }}' 
+                  -X 'main.BuildDate=${{ env.BUILD_DATE }}'" 
         -o release/${{ env.PROJECT_NAME }}_${{ env.BUILD_DATE }}_windows_amd64.exe
 
     - name: Build Windows ARM64
-      run: >
-        CGO_ENABLED=0 GOOS=windows GOARCH=arm64 go build \
-        -ldflags="-X 'main.Version=${{ github.ref_name }}' \
-                  -X 'main.BuildDate=${{ env.BUILD_DATE }}'" \
+      run: |
+        mkdir -p release
+        CGO_ENABLED=0 GOOS=windows GOARCH=arm64 go build 
+        -ldflags="-X 'main.Version=${{ github.ref_name }}' 
+                  -X 'main.BuildDate=${{ env.BUILD_DATE }}'" 
         -o release/${{ env.PROJECT_NAME }}_${{ env.BUILD_DATE }}_windows_arm64.exe
 
     - name: Build macOS AMD64
-      run: >
-        CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build \
-        -ldflags="-X 'main.Version=${{ github.ref_name }}' \
-                  -X 'main.BuildDate=${{ env.BUILD_DATE }}'" \
+      run: |
+        mkdir -p release
+        CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build 
+        -ldflags="-X 'main.Version=${{ github.ref_name }}' 
+                  -X 'main.BuildDate=${{ env.BUILD_DATE }}'" 
         -o release/${{ env.PROJECT_NAME }}_${{ env.BUILD_DATE }}_darwin_amd64
 
     - name: Build macOS ARM64
-      run: >
-        CGO_ENABLED=0 GOOS=darwin GOARCH=arm64 go build \
-        -ldflags="-X 'main.Version=${{ github.ref_name }}' \
-                  -X 'main.BuildDate=${{ env.BUILD_DATE }}'" \
+      run: |
+        mkdir -p release
+        CGO_ENABLED=0 GOOS=darwin GOARCH=arm64 go build 
+        -ldflags="-X 'main.Version=${{ github.ref_name }}' 
+                  -X 'main.BuildDate=${{ env.BUILD_DATE }}'" 
         -o release/${{ env.PROJECT_NAME }}_${{ env.BUILD_DATE }}_darwin_arm64
 
     - name: Create Source Code Tarball
